@@ -13,6 +13,10 @@ app.use("/api/auth", authRoutes)
 const userRoutes = require("./routes/user.routes");
 app.use("/api", userRoutes);
 
+// get the otp routes and call the using app.use
+const otpRoutes = require("./routes/otp.routes");
+app.use("/api", otpRoutes);
+
 
 // now call the error middleware 
 

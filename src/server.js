@@ -1,8 +1,8 @@
 // dotenv will read .env file and private variables
 require("dotenv").config()
 // load cron jobs which will run in the background and perform background tasks
-require("./jobs/cron.jobs");
-require("./jobs/dailyReport.job")
+// require("./jobs/cron.jobs");
+// require("./jobs/dailyReport.job")
 // this app will start the server
 // require the app module after the server start app will run and it will run the routes along with middlewars
 const app = require("./app");
