@@ -33,7 +33,8 @@ const login = async (req, res)=>{
 
     // if user exist and password is matched the generated a new token
     const token = generateToken(user.id);
-
+    user.lastLogin = Date.now();
+    await user.save();
     res.json({
         success:"success",
         token:token
