@@ -1,5 +1,6 @@
 // this repository layer will handle db manipulation only 
 const User = require("../model/user.model");
+const Video = require("../model/video.model")
 
 class  UserRepository {
     async create(userData){
@@ -19,6 +20,9 @@ class  UserRepository {
     }
     async updateById(id, data){
         return await User.findByIdAndUpdate(id, data, { new:true, runValidators:true})
+    }
+    async uploadVideo(data){
+        return await Video.create(data)
     }
 
 }

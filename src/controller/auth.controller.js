@@ -2,17 +2,24 @@
 const User = require("../model/user.model");
 const generateToken = require("../utils/generateToken");
 const redisClient = require("../config/redis")
+const emailQueue = require("../queues/email.queue");
 
 // for register
 const register = async (req, res)=>{
     // get the data
-    const { name, email, password} = req.body;
+    const { name, email, password, phone, role} = req.body;
     const user = await User.create({
-        name, email, password
+        name, email, password, phone, role
+    })
+
+    // when user is saved successfully then 
+    await emailQueue.add({
+        email:email,
+        message:"Welcome to our platform"
     })
     res.status(201).json({
         status:"success",
-        data:"User created successfully"
+        data: user || "User created successfully"
     })
 }
 

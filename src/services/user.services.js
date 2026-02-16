@@ -36,6 +36,13 @@ class userServices{
         }
         return response;
     }
+    async uploadVideo(data){
+        const response = await userRepository.uploadVideo(data)
+        if(!response){
+            throw new AppError("video not stored", 400)
+        }
+        return response
+    }
 }
 
 module.exports = new userServices()

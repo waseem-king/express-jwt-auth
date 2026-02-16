@@ -17,6 +17,14 @@ app.use("/api", userRoutes);
 const otpRoutes = require("./routes/otp.routes");
 app.use("/api", otpRoutes);
 
+// here are the post create route
+const postRoute = require("./routes/post.routes")
+app.use("/api", postRoute)
+
+// here is the route for video upload
+const videoRoute = require("./routes/video.routes");
+app.use("/api", videoRoute)
+
 
 // now call the error middleware 
 

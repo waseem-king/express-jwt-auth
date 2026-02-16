@@ -11,7 +11,7 @@ const { userValidation } = require("../middleware/user.validation")
 const { protect , authorize} = require("../middleware/auth.middleware")
 
 // route to get all the users
-router.get("/users", protect,  userController.getAllUsers);
+router.get("/users", protect, userController.getAllUsers);
 // route to get the user by id
 router.get("/user/:id", userController.getUserById);
 // router to create a new user at database
